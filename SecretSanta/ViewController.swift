@@ -9,6 +9,8 @@
 import UIKit
 
 let family = ["Joe", "Mike", "John", "jaymie", "Sean"]
+// Create an array to keep track of the available family members that will hold data for the function
+var availableFamily = family
 
 // Create an Empty array to keep track of all santa/recipient matches
 var emptyDict: [String: String] = [:]
@@ -19,13 +21,14 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         
+        
     }
     
     
     func getSantas() {
         for santa in family {
-            // Create an array to keep track of the available family members
-            var availableFamily = family
+            
+            
             
             // Generate randomIndex number
             var randomIndex = Int(arc4random_uniform(UInt32(availableFamily.count)))
@@ -56,9 +59,10 @@ class ViewController: UIViewController {
     }
     
 
-    // reset the dictionary to empty
+    // reset the dictionary to empty & resets availableFamily back to all Family members (family)
     func resetSantas() {
         emptyDict.removeAll()
+        availableFamily = family
     }
 
 

@@ -40,7 +40,7 @@ class SecretSantaUITests: XCTestCase {
     }
     
     func testPairsLabelExists() {
-        
+        let label = app.staticTexts.element.label
     }
     
     func testResetBtnExists() {
@@ -55,12 +55,18 @@ class SecretSantaUITests: XCTestCase {
         XCTAssertTrue(resetBtn.isHittable, "Reset Button Should appear on screen")
     }
     func testMatchSantaspressed() {
-        XCUIApplication().buttons["Match Santas!!"].tap()
+        let text = app.label.contains("'jaymie'")
+        let exists = NSPredicate(format: "exists == true")
+        expectation(for: exists, evaluatedWith: text, handler: nil)
         
+        app.buttons["Match Santas!!"].tap()
+        waitForExpectations(timeout: 5, handler: nil)
+        
+        XCTAssertTrue(text, "The label text is missing")
     }
     
     func testResetPressed() {
-        XCUIApplication().buttons["Reset"].tap()
+        app.buttons["Reset"].tap()
     }
 
 }

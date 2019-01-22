@@ -11,6 +11,7 @@ import Foundation
 class Family {
     var family = ["Joe", "Mike", "John", "jaymie", "Sean"]
 
+
     
     var santasDict: [String: String] = [:]
     
@@ -37,19 +38,21 @@ class Family {
             
             // append to the Assignment Array
             santasDict.updateValue(recipient, forKey: santa)
-            //        print("\(santa.name) will be giving a gift to \(recipient.name)")
+            print(santasDict)
+            print("\(santa) will be giving a gift to \(recipient)")
             
             // remove the family member if they've been chosen
             available.remove(at: randomIndex)
         }
+        
         return santasDict
     }
     
     
     // reset the dictionary to empty & resets availableFamily back to all Family members (family)
-    func resetSantas() {
-        santasDict.removeAll()
-    }
+//    func resetSantas() {
+//        availableFamily = family
+//    }
     
     
     

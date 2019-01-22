@@ -43,37 +43,52 @@ class SecretSantaTests: XCTestCase {
     
     func testDictContainsAllFamily(){
         let familyData = ss.family
-        let getSantasFunc = ss.getSantas(members: familyData, available: familyData)
+        var availableFamilyData = ss.family
+        let getSantasFunc = ss.getSantas(members: familyData, available: &availableFamilyData)
         XCTAssertEqual(getSantasFunc.count, familyData.count , "The Dictionary count must equal the Family Array count")
     }
     
     func testAllSantasHaveReceivers() {
         let familyData = ss.family
-        let getSantasFunc = ss.getSantas(members: familyData, available: familyData)
+        var availableFamilyData = ss.family
+        var getSantasFunc = ss.getSantas(members: familyData, available: &availableFamilyData)
         let valueExists = getSantasFunc.values.filter({ $0 == nil }).isEmpty
         XCTAssertTrue(valueExists, "All Keys in dictionary should also have values")
     }
     
     func testAllReceiversHaveSantas() {
         let familyData = ss.family
-        let getSantasFunc = ss.getSantas(members: familyData, available: familyData)
+        var availableFamilyData = ss.family
+        let getSantasFunc = ss.getSantas(members: familyData, available: &availableFamilyData)
         let keyExists = getSantasFunc.keys.filter({ $0 == nil }).isEmpty
         XCTAssertTrue(keyExists, "All Keys in dictionary should also have values")
     }
     
     func testAvailableRemovesAll() {
         let familyData = ss.family
-        let availableFamilyData = ss.family
-        let getSantasFunc = ss.getSantas(members: familyData, available: availableFamilyData)
+        var availableFamilyData = ss.family
+        var getSantasFunc = ss.getSantas(members: familyData, available: &availableFamilyData)
         let isArrayEmpty = availableFamilyData.count == 0
         XCTAssertTrue(isArrayEmpty, "The AvailableFamilyArray should be empty at end of function")
     }
     
+    func testSantaisNotReceiver() {
+        let familyData = ss.family
+        var availableFamilyData = ss.family
+        var getSantasFunc = ss.getSantas(members: familyData, available: &availableFamilyData)
+        func check() -> Bool {
+            for (key, value) in getSantasFunc {
+                getSantasFunc[key] != getSantasFunc[value]
+            }
+            return true
+        }
+        XCTAssertTrue(check(), "Santas are not their own receiver")
+    }
+    
     
     func testPerformanceExample() {
-        // This is an example of a performance test case.
         self.measure {
-            // Put the code you want to measure the time of here.
+            //
         }
     }
 

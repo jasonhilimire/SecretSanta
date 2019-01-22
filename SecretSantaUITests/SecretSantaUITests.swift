@@ -14,20 +14,15 @@ class SecretSantaUITests: XCTestCase {
     let app = XCUIApplication()
   
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
+        super.setUp()
         continueAfterFailure = false
-
-        // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
         XCUIApplication().launch()
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
     }
+    
  // Check all elements appear on screen properly
     func testTitleExists() {
         let title = app.staticTexts["Secret Santas"]
@@ -39,8 +34,19 @@ class SecretSantaUITests: XCTestCase {
         XCTAssertTrue(matchBtn.exists, "Match Santas Button Should appear")
     }
     
+    func testMatchSantasPressedisEnabled() {
+        let matchSantabtn = app.buttons["Match Santas!!"]
+        XCTAssertTrue(matchSantabtn.isEnabled, "Match Santas Button should be Enabled")
+    }
+    
+    func testHeaderLabelExists() {
+        let label = app.staticTexts["headerLabel"]
+        XCTAssertTrue(label.exists, "Label should exist")
+    }
+    
     func testPairsLabelExists() {
-        let label = app.staticTexts.element.label
+        let label = app.staticTexts["pairLabel"]
+        XCTAssertTrue(label.exists, "Label should exist")
     }
     
     func testResetBtnExists() {
@@ -50,23 +56,43 @@ class SecretSantaUITests: XCTestCase {
     
     func testRotation() {
         // this will fail as i didnt apply any constraints on purpose
+        // ideally would test this on all rotations ....
         let resetBtn = app.buttons["Reset"]
         XCUIDevice.shared.orientation = .landscapeLeft
         XCTAssertTrue(resetBtn.isHittable, "Reset Button Should appear on screen")
     }
-    func testMatchSantaspressed() {
-        let text = app.label.contains("'jaymie'")
-        let exists = NSPredicate(format: "exists == true")
-        expectation(for: exists, evaluatedWith: text, handler: nil)
-        
+    
+    // Check button presses / functionality
+    
+    func testMatchSantaspressedFillsLabel() {
+        let labelStaticText = app.staticTexts["pairLabel"]
         app.buttons["Match Santas!!"].tap()
-        waitForExpectations(timeout: 5, handler: nil)
-        
-        XCTAssertTrue(text, "The label text is missing")
+        let labelText = labelStaticText.label
+        let isValidLabelText = labelText.contains("jaymie")
+        XCTAssertTrue(isValidLabelText, "Contains the string")
     }
     
-    func testResetPressed() {
+    func testMatchSantasPressedthenDisabled() {
+        let matchSantabtn = app.buttons["Match Santas!!"]
+        app.buttons["Match Santas!!"].tap()
+        XCTAssertTrue(!matchSantabtn.isEnabled, "Match Santas Button should be disabled")
+    }
+    
+    func testResetPressedClearsLabel() {
+        
+        let labelStaticText = app.staticTexts["pairLabel"]
+        app.buttons["Match Santas!!"].tap()
         app.buttons["Reset"].tap()
+        let labelText = labelStaticText.label
+        let isValidLabelText = labelText.isEmpty
+        XCTAssertTrue(isValidLabelText, "Label should be empty")
+    }
+    
+    func testMatchSantasPressedtisReEnabled() {
+        let matchSantabtn = app.buttons["Match Santas!!"]
+        app.buttons["Match Santas!!"].tap()
+        app.buttons["Reset"].tap()
+        XCTAssertTrue(matchSantabtn.isEnabled, "Match Santas Button should be Enabled")
     }
 
 }

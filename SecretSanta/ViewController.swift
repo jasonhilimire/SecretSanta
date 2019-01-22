@@ -8,25 +8,35 @@
 
 import UIKit
 
-//let family = ["Joe", "Mike", "John", "jaymie", "Sean"]
-// Create an array to keep track of the available family members that will hold data for the function
-//var availableFamily = family
-
-// Create an Empty array to keep track of all santa/recipient matches
-//var emptyDict: [String: String] = [:]
+let fam = Family()
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    
+    }
+    
+    @IBOutlet weak var matchBtn: UIButton!
+    
+    @IBOutlet weak var pairsLabel: UILabel!
+    
+    @IBAction func matchBtnPressed(_ sender: UIButton) {
         
+        fam.getSantas(members: fam.family, available: &fam.family)
+        pairsLabel.text = ("\(fam.santasDict)")
+        self.view.backgroundColor = #colorLiteral(red: 0.8325467957, green: 0.0001600589836, blue: 0.1570640221, alpha: 1)
         
     }
     
     
+    @IBOutlet weak var resetBtn: UIButton!
+    @IBAction func resetBtnPressed(_ sender: Any) {
+        fam.resetSantas()
+        self.view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        pairsLabel.text = ""
+    }
     
-
-
 }
 

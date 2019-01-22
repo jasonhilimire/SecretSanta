@@ -7,9 +7,12 @@
 //
 
 import XCTest
+@testable import SecretSanta
 
 class SecretSantaUITests: XCTestCase {
 
+    let app = XCUIApplication()
+  
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
 
@@ -25,10 +28,39 @@ class SecretSantaUITests: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+ // Check all elements appear on screen properly
+    func testTitleExists() {
+        let title = app.staticTexts["Secret Santas"]
+        XCTAssertTrue(title.exists, "Title should appear")
+    }
+    
+    func testMatchBtnExists() {
+        let matchBtn = app.buttons["Match Santas!!"]
+        XCTAssertTrue(matchBtn.exists, "Match Santas Button Should appear")
+    }
+    
+    func testPairsLabelExists() {
+        
+    }
+    
+    func testResetBtnExists() {
+        let resetBtn = app.buttons["Reset"]
+        XCTAssertTrue(resetBtn.exists, "Reset Button Should appear")
+    }
+    
+    func testRotation() {
+        // this will fail as i didnt apply any constraints on purpose
+        let resetBtn = app.buttons["Reset"]
+        XCUIDevice.shared.orientation = .landscapeLeft
+        XCTAssertTrue(resetBtn.isHittable, "Reset Button Should appear on screen")
+    }
+    func testMatchSantaspressed() {
+        XCUIApplication().buttons["Match Santas!!"].tap()
+        
+    }
+    
+    func testResetPressed() {
+        XCUIApplication().buttons["Reset"].tap()
     }
 
 }

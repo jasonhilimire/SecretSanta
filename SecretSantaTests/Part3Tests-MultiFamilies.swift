@@ -10,18 +10,38 @@ import XCTest
 @testable import SecretSanta
 
 class Part3Tests_MultiFamilies: XCTestCase {
+    
+    // Set up Class & common variables
+    let mf = MultiFamilies()
+    lazy var dict = mf.santasDict
+    lazy var wholeFamilyData = mf.wholeFamilyArray
+    lazy var availableFamilyData = mf.availableMembers
+    lazy var getSantasFunc = mf.getSantas(members: wholeFamilyData, available: &availableFamilyData)
 
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        super.setUp()
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        availableFamilyData = wholeFamilyData
+        dict.removeAll()
+        super.tearDown()
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testUnionSuccess() {
+        let union = mf.union()
+        let sets = mf.sets
+        XCTAssertTrue(!union.isEmpty, "The set should not be empty")
+    }
+    
+    func testNotMembersSameFamily() {
+        func check() -> Bool {
+            for (key, value) in getSantasFunc {
+                getSantasFunc[key] != getSantasFunc[value]
+            }
+            return true
+        }
+        XCTAssertTrue(check(), "Receivers are not in their Santas Family")
     }
 
     func testPerformanceExample() {

@@ -61,8 +61,6 @@ class SecretSantaTests: XCTestCase {
     }
     
     func testAllReceiversHaveSantas() {
-
-
         let keyExists = getSantasFunc.keys.filter({ $0 == nil }).isEmpty
         XCTAssertTrue(keyExists, "All Keys in dictionary should also have values")
     }
@@ -76,7 +74,6 @@ class SecretSantaTests: XCTestCase {
     
     func testSantaisNotReceiver() {
 
-//        var getSantasFunc = ss.getSantas(members: familyData, available: &availableFamilyData)
         func check() -> Bool {
             for (key, value) in getSantasFunc {
                 getSantasFunc[key] != getSantasFunc[value]

@@ -35,9 +35,16 @@ class Part3Tests_MultiFamilies: XCTestCase {
     }
     
     func testNotMembersSameFamily() {
+        let fam1 = mf.family1
+        let fam2 = mf.family2
+        let fam3 = mf.family3
+        let fam4 = mf.family4
         func check() -> Bool {
             for (key, value) in getSantasFunc {
-                getSantasFunc[key] != getSantasFunc[value]
+                if fam1.contains(key) && fam1.contains(value) || fam2.contains(key) && fam2.contains(value)
+                    || fam3.contains(key) && fam3.contains(value)  || fam4.contains(key) && fam4.contains(value) {
+                    return false
+                    }
             }
             return true
         }

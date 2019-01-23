@@ -74,9 +74,9 @@ class MultiFamilies {
 
 
             // check that the recipient & the santa are not in the same family set - may be a better way to rewrite this, but it guarantees each time that recipient wont be reset to a member of their set
-//            while family1.contains(santa) && family1.contains(recipient) {
-//                recipient = available[random()]
-//            }
+            while family1.contains(santa) && family1.contains(recipient) {
+                recipient = available[random()]
+            }
             while family2.contains(santa) && family2.contains(recipient) {
                 recipient = available[random()]
             }

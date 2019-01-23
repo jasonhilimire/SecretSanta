@@ -119,8 +119,8 @@
 			isa = PBXGroup;
 			children = (
 				A39A897821F6AE1A00D45D33 /* SecretSantaTests.swift */,
-				A39A897A21F6AE1A00D45D33 /* Info.plist */,
 				A387437C21F81AE00056C8DE /* Part3Tests-MultiFamilies.swift */,
+				A39A897A21F6AE1A00D45D33 /* Info.plist */,
 			);
 			path = SecretSantaTests;
 			sourceTree = "<group>";

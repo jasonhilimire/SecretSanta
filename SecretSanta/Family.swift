@@ -10,8 +10,7 @@ import Foundation
 
 class Family {
     var family = ["Joe", "Mike", "John", "jaymie", "Sean"]
-
-
+    
     
     var santasDict: [String: String] = [:]
     
@@ -36,7 +35,7 @@ class Family {
             
             let recipient = available[randomIndex]
             
-            // append to the Assignment Array
+            // append to the SantasDict 
             santasDict.updateValue(recipient, forKey: santa)
             print(santasDict)
             print("\(santa) will be giving a gift to \(recipient)")

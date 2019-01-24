@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A37A36EF21F7C99B0063952E /* MultiFamilies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37A36EE21F7C99A0063952E /* MultiFamilies.swift */; };
+		A37A36EF21F7C99B0063952E /* MultiFamilies-Part3.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37A36EE21F7C99A0063952E /* MultiFamilies-Part3.swift */; };
 		A387437D21F81AE00056C8DE /* Part3Tests-MultiFamilies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A387437C21F81AE00056C8DE /* Part3Tests-MultiFamilies.swift */; };
+		A38A1D2721F98A4900819FDE /* CompareYears-Part2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38A1D2621F98A4900819FDE /* CompareYears-Part2.swift */; };
 		A39A896421F6AE1800D45D33 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39A896321F6AE1800D45D33 /* AppDelegate.swift */; };
 		A39A896621F6AE1800D45D33 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39A896521F6AE1800D45D33 /* ViewController.swift */; };
 		A39A896921F6AE1800D45D33 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A39A896721F6AE1800D45D33 /* Main.storyboard */; };
@@ -16,7 +17,7 @@
 		A39A896E21F6AE1A00D45D33 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A39A896C21F6AE1A00D45D33 /* LaunchScreen.storyboard */; };
 		A39A897921F6AE1A00D45D33 /* SecretSantaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39A897821F6AE1A00D45D33 /* SecretSantaTests.swift */; };
 		A39A898421F6AE1A00D45D33 /* SecretSantaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39A898321F6AE1A00D45D33 /* SecretSantaUITests.swift */; };
-		A39A899421F6BA1400D45D33 /* Family.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39A899321F6BA1400D45D33 /* Family.swift */; };
+		A39A899421F6BA1400D45D33 /* Family-Part1.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39A899321F6BA1400D45D33 /* Family-Part1.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,8 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A37A36EE21F7C99A0063952E /* MultiFamilies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiFamilies.swift; sourceTree = "<group>"; };
+		A37A36EE21F7C99A0063952E /* MultiFamilies-Part3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MultiFamilies-Part3.swift"; sourceTree = "<group>"; };
 		A387437C21F81AE00056C8DE /* Part3Tests-MultiFamilies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Part3Tests-MultiFamilies.swift"; sourceTree = "<group>"; };
+		A38A1D2621F98A4900819FDE /* CompareYears-Part2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CompareYears-Part2.swift"; sourceTree = "<group>"; };
 		A39A896021F6AE1800D45D33 /* SecretSanta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SecretSanta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A39A896321F6AE1800D45D33 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A39A896521F6AE1800D45D33 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -52,7 +54,7 @@
 		A39A897F21F6AE1A00D45D33 /* SecretSantaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SecretSantaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A39A898321F6AE1A00D45D33 /* SecretSantaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretSantaUITests.swift; sourceTree = "<group>"; };
 		A39A898521F6AE1A00D45D33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A39A899321F6BA1400D45D33 /* Family.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Family.swift; sourceTree = "<group>"; };
+		A39A899321F6BA1400D45D33 /* Family-Part1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Family-Part1.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,8 +111,9 @@
 				A39A896A21F6AE1A00D45D33 /* Assets.xcassets */,
 				A39A896C21F6AE1A00D45D33 /* LaunchScreen.storyboard */,
 				A39A896F21F6AE1A00D45D33 /* Info.plist */,
-				A39A899321F6BA1400D45D33 /* Family.swift */,
-				A37A36EE21F7C99A0063952E /* MultiFamilies.swift */,
+				A39A899321F6BA1400D45D33 /* Family-Part1.swift */,
+				A38A1D2621F98A4900819FDE /* CompareYears-Part2.swift */,
+				A37A36EE21F7C99A0063952E /* MultiFamilies-Part3.swift */,
 			);
 			path = SecretSanta;
 			sourceTree = "<group>";
@@ -265,10 +268,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A38A1D2721F98A4900819FDE /* CompareYears-Part2.swift in Sources */,
 				A39A896621F6AE1800D45D33 /* ViewController.swift in Sources */,
 				A39A896421F6AE1800D45D33 /* AppDelegate.swift in Sources */,
-				A39A899421F6BA1400D45D33 /* Family.swift in Sources */,
-				A37A36EF21F7C99B0063952E /* MultiFamilies.swift in Sources */,
+				A39A899421F6BA1400D45D33 /* Family-Part1.swift in Sources */,
+				A37A36EF21F7C99B0063952E /* MultiFamilies-Part3.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,14 +13,15 @@ import Foundation
 var family = ["Joe", "Mike", "John", "jaymie", "Sean", "Dad", "Mom"]
 
 
-// Create a custom struct so that we can compare recipients easily
+// Create a custom struct so that we can compare recipients as they are are now Equatable
 struct Custom: Equatable {
     var value: String
 }
 
-
 var santasDict: [String: Custom] = [:]
-
+var year1: [String: Custom] = [:]
+var year2: [String: Custom] = [:]
+var year3: [String: Custom] = [:]
 
 func getSantas(members: [String], available: inout [String]) -> [String: Custom]{
     for santa in members {
@@ -45,28 +46,26 @@ func getSantas(members: [String], available: inout [String]) -> [String: Custom]
         santasDict.updateValue(recipient, forKey: santa)
         
 /*
-         non functional as it doesnt account for all 3 years, but also there is an issue where the recipients can occur multiple times in the same list
-         year1 = santasDict // needs to be declared
+         // this is functional however doesnt account for all 3 years nor checking for combinations, i suppose could continuously nest the for loop for each combination but thats not ideal, I just havent found a correct algorithm (yet) to perform this the way I'd like
+
  
          for (key, value) in year1 {
             for (key2, val2) in year2 {
-                if (key, value) == (key2, val2) {
-                    print("there's a dup & it is \(key), giving to \(value) multiple times")
-                    recipient = Custom(value: available[randomIndex])
+                 while (key, value) == (key2, val2)  {
+                 // remove the value if it matches, regenerate a new random value & update
+                 santasDict.removeValue(forKey: santa)
+                 recipient = Custom(value: available[randomIndex])
+                 santasDict.updateValue(recipient, forKey: santa)
                 }
             }
          }
- 
-         year1.updateValue(recipient, forKey: santa)
         
   */
         // remove the family member if they've been chosen
         available.remove(at: randomIndex)
         print("\(santa) will be giving a gift to \(recipient)")
     }
-
     return santasDict
-    //return year 1
 }
 
 
@@ -89,17 +88,18 @@ func == (lhs: Custom, rhs: Custom) -> Bool {
 /*
 
 // Run the function for to get year1 data & then reset
-var year1 = getSantas(members: family, available: &availableFamily)
+year1 = getSantas(members: family, available: &availableFamily)
 resetSantas()
 
 // Run the function for to get year2 data & then reset
-var year2 = getSantas(members: family, available: &availableFamily)
+year2 = getSantas(members: family, available: &availableFamily)
 resetSantas()
 
-// Run the function for to get year1 data & then reset
-var year3 = getSantas(members: family, available: &availableFamily)
+// Run the function  to get year3 data & then reset
+year3 = getSantas(members: family, available: &availableFamily)
+ resetSantas()
 
-// check for duplicates by comparing yearA to yearB - so we have to generate year1 and then compare to year2 & then again to compare against year 3 -- I'm struggling to run this inside the function at the moment
+// check for duplicates by comparing yearA to yearB - so we have to generate year1 and then compare to year2 & then again to compare against year 3
  
 func checkDuplicatess(yearA: [String: Custom], yearB: [String: Custom] ) {
     for (key, value) in yearA {
@@ -111,6 +111,16 @@ func checkDuplicatess(yearA: [String: Custom], yearB: [String: Custom] ) {
         }
     }
 }
+ 
+ 
+ // Test for checking equality
+     func checkDups() {
+         if (year1 == year2) {
+         print("there are some duplicates")
+             } else {
+             print("no duplicates")
+         }
+     }
 
  */
  
